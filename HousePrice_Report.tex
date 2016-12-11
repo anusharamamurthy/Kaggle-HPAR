@@ -1,0 +1,191 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Stylish Article
+% LaTeX Template
+% Version 2.1 (1/10/15)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Mathias Legrand (legrand.mathias@gmail.com) 
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[fleqn,10pt]{SelfArx} % Document font size and equations flushed left
+
+\usepackage[english]{babel} % Specify a different language here - english by default
+
+\usepackage{lipsum} % Required to insert dummy text. To be removed otherwise
+
+%----------------------------------------------------------------------------------------
+%	COLUMNS
+%----------------------------------------------------------------------------------------
+
+\setlength{\columnsep}{0.55cm} % Distance between the two columns of text
+\setlength{\fboxrule}{0.75pt} % Width of the border around the abstract
+
+%----------------------------------------------------------------------------------------
+%	COLORS
+%----------------------------------------------------------------------------------------
+
+\definecolor{color1}{RGB}{0,0,90} % Color of the article title and sections
+\definecolor{color2}{RGB}{0,20,20} % Color of the boxes behind the abstract and headings
+
+%----------------------------------------------------------------------------------------
+%	HYPERLINKS
+%----------------------------------------------------------------------------------------
+
+\usepackage{hyperref} % Required for hyperlinks
+\hypersetup{hidelinks,colorlinks,breaklinks=true,urlcolor=color2,citecolor=color1,linkcolor=color1,bookmarksopen=false,pdftitle={Title},pdfauthor={Author}}
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE INFORMATION
+%----------------------------------------------------------------------------------------
+
+\JournalInfo{Data Mining B565 Fall 2016} % Journal information
+\Archive{} % Additional notes (e.g. copyright, DOI, review/research article)
+
+\PaperTitle{House Prices} % Article title
+
+\Authors{Anusha\textsuperscript{1}, Vandana Kolli\textsuperscript{2}} % Authors
+\affiliation{\textsuperscript{1}\textit{Computer Science, School of Informatics and Computing, Indiana University, Bloomington, IN, USA}} % Author affiliation
+\affiliation{\textsuperscript{2}\textit{ Computer Science, School of Informatics and Computing, Indiana University, Bloomington, IN, USA}} % Author affiliation
+\affiliation{*\textbf{Corresponding author}: todo} % Corresponding author
+
+\Keywords{house --- price --- prediction} % Keywords - if you don't want any simply remove all the text between the curly brackets
+\newcommand{\keywordname}{Keywords} % Defines the keywords heading name
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\Abstract{In this paper, we analyzed the house price based on multiple features using data mining algorithms. In order to select a prediction method different regression methods were explored and compared. The dataset we used describes the sale of individual residential property in Ames, Iowa from 2006 to 2010. We built models using linear regression, decision trees and random forests and compared their performances. The problem
+is how to reduce multiple features to a minimal number(feature extraction) that can completely predict the target price variable. The results show that data mining algorithms produces high prediction accuracy in house price analysis and prediction. }
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\flushbottom % Makes all text pages the same height
+
+\maketitle % Print the title and abstract box
+
+\tableofcontents % Print the contents section
+
+\thispagestyle{empty} % Removes page numbering from the first page
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+\section{Introduction} % The \section*{} command stops section numbering
+
+\addcontentsline{toc}{section}{Introduction} % Adds this section to the table of contents
+
+\subsection{Problems in House Price Prediction}
+Real estate properties will always be a safe option of investment for a common person. It is an investment which does not decline in value rapidly. The rapidly growing real estate industry has become an important part of national economy. Problems such as rapid raise of house price, high vacancy ratio require the Government to institute industrial policies to help industry development. With the increase on the data, the analysts need to apply good tools and predict house prices to help consumers. There is a lot of house data available with different features like Lot Area, Street, neighborhood etc. The important thing is to find a efficient data analysis tool to transform the data into knowledge and information[1].\\
+The data comprises of the multiple features of the house which can be considered by potential buyers , but it is impossible to provide an automated comparison on all the features as they are diverse. The diversity of features makes it challenging to predict correct market price. Feature Extraction is one of the biggest challenges faced with data having large feature set. The house predict
+
+
+\subsection{Data Minning on House Price prediction}
+Data mining is the process of understanding useful and structural patterns in data, thus referring to the overall procedure of information discovery from data. These data specific discoveries became popular in the domain of machine learning and artificial intelligence. Some of the most popular machine learning algorithm include - decision trees, linear regression, logistic regression, neural networks, random forests and so on. Each algorithm suits some problems better than others. Data mining techniques are used to extract knowledge from data using a different of methods that are divided in two groups: classification and regression. Classification learns to map, or classifies, an item in the data into one of several predefined classes while regressions maps the item to a continuous numerical prediction.
+
+Data mining draws inferences from data to understand the patterns of correlation among data values and to predict the future data values. By calculating the differences between the actual and predicted price as an error, we compare the results and accuracy of the predicated prices by the Decision Trees and Neural Networks algorithms. 
+
+\subsection{Interests and Motivation}
+The consumers of the house price prediction can be - homeowners, investors, tax assessment department, insurers etc. These consumers should get an accurate prediction of the final price of house. It is interesting to learn based diverse features on the existing consumer data and predict accurate house prices.  
+
+\footnote{And some mathematics $\cos\pi=-1$ and $\alpha$ in the text.}.
+
+%------------------------------------------------
+
+\section{Background}
+
+\begin{figure*}[ht]\centering % Using \begin{figure*} makes the figure take up the entire width of the page
+\includegraphics[width=\linewidth]{view}
+\caption{Wide Picture}
+\label{fig:view}
+\end{figure*}
+
+A database is software application that allows a large collection of data. It allows fast and optimal retrieval of data.
+In Bayesian terms, Probability signifies the belief that one has on the outcome of an event. 
+
+
+Given a sample space $\Omega$, Probability of an advertisement $P_(ad_clicked)$ being clicked, is number of times the advertisement is clicked $N_(ad_clicked = 1)$ by the total number of times the advertisement appears, i.e. $N_(ad_clicked = 0)  N_(ad_clicked = 1)$. 
+
+
+$P_(ad_clicked)  = \frac{N_(ad_clicked = 1)}{N_(ad_clicked = 0) + N_(ad_clicked = 1)}$
+
+
+A clustering algorithm is used to identify and correlate similar data points. The K-Nearest Neighbor algorithm, identifies the $k$ nearest neighbors for a given data point(a single row in a dataset). The $KNN$ algorithm identifies similar data points using a distance metric. 
+TODO - A distance metric is fill in from assignment 1
+
+
+%------------------------------------------------
+
+\section{Data Analysis}
+
+TODO
+
+\subsection{Subsection}
+
+TODO 
+
+\begin{table}[hbt]
+\caption{Table of Grades}
+\centering
+\begin{tabular}{llr}
+\toprule
+\multicolumn{2}{c}{Name} \\
+\cmidrule(r){1-2}
+First name & Last Name & Grade \\
+\midrule
+John & Doe & $7.5$ \\
+Richard & Miles & $2$ \\
+\bottomrule
+\end{tabular}
+\label{tab:label}
+\end{table}
+
+\section{Problem}
+
+\section{Experiments Data}
+The model proposed in this paper was trained on a very
+large and diverse dataset. In this section we describe the
+details of the dataset. In addition, we also discuss the details
+of the various standard techniques that have been used for
+the problem, with which the performance of the model was
+compared. The results of the various techniques are given
+in the next section.
+The dataset provided is a sample of user's page views and clicks. The data is from multiple publisher sites from United States between \date 14-June-2016 and 28-June-2016
+\section{Results}
+\section{Summary conclusion}
+\section{Future Work}
+\section{Appendix}
+%------------------------------------------------
+\phantomsection
+\section*{Acknowledgments} % The \section*{} command stops section numbering
+
+\addcontentsline{toc}{section}{Acknowledgments} % Adds this section to the table of contents
+
+So long and thanks for all the fish \cite{Figueredo:2009dg}.
+
+%----------------------------------------------------------------------------------------
+%	REFERENCE LIST
+%----------------------------------------------------------------------------------------
+\phantomsection
+\bibliographystyle{unsrt}
+\bibliography{sample}
+[1] https://www.irbnet.de/daten/iconda/CIB5807.pdf
+%----------------------------------------------------------------------------------------
+
+\end{document}
