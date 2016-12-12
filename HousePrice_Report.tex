@@ -102,7 +102,8 @@ Data mining is the process of understanding useful and structural patterns in da
 Data mining draws inferences from data to understand the patterns of correlation among data values and to predict the future data values. By calculating the differences between the actual and predicted price as an error, we compare the results and accuracy of the predicated prices by the Decision Trees and Neural Networks algorithms. 
 
 \subsection{Interests and Motivation}
-The consumers of the house price prediction can be - homeowners, investors, tax assessment department, insurers etc. These consumers should get an accurate prediction of the final price of house. It is interesting to learn based diverse features on the existing consumer data and predict accurate house prices.  
+TODO
+The consumers of the house price prediction can be - homeowners, investors, tax assessment department, insurers etc. These consumers should get an accurate prediction of the final price of house. It is interesting to learn based diverse features on the existing consumer data and predict accurate house prices for any new data.  
 
 \footnote{And some mathematics $\cos\pi=-1$ and $\alpha$ in the text.}.
 
@@ -116,20 +117,24 @@ The consumers of the house price prediction can be - homeowners, investors, tax 
 \label{fig:view}
 \end{figure*}
 
-A database is software application that allows a large collection of data. It allows fast and optimal retrieval of data.
-In Bayesian terms, Probability signifies the belief that one has on the outcome of an event. 
+In this paper we used machine learning algorithms like linear regression, decision trees and neural networks to predict the house prices. Machine learning techniques can be divided into supervised and unsupervised. Our analysis takes into consideration the provided target variables in making predictions, thus it is supervised. In this section we will discuss about these techniques in detail.
+\subsection{Linear Regression}
+A Regression Model defines three types of regression models: linear, polynomial, and logistic regression. Linear regression, the most widely used of all statistical techniques, allows to summarize and study relations between two continuous variables[2]. It attempts to model the relationship between these two variables by fitting a linear equation to observed data. \\
+Let $Y$ be the target value which we need to predict.\\
+Let $X$ be the independent variables from which target is predicted, then\\
+The linear regression line has an equation of the form:
+\[ $Y = a + bX$\]
+ Mos common method to fit a regression line is the method of least squares which calculates the best fitting line for observed data by minimizing the sum of squares of the vertical deviations from each data point to the line. 
+ 
+\subsection{Decision Trees}
+A decision tree builds regression or classification models in the form of a tree structure. The tree includes root node, branches and leaf nodes. Each internal node denotes a test on an attribute, each branch denotes the outcome of a test and each leaf node holds a class label. Decision trees can handle both categorical and numerical data. \\
+Different algorithms and impurity measures are used for building a Decision Tree. In our analysis we have used CART(Classification and Regression Tree) algorithm. In our paper since we are dealing with prediction of a continuous  variable(price), the decision tree is called regression tree.\\
+\textbf{Gini Index}\\
+It measures the inequality among values of a frequency distribution. Gini index of 0 means perfect equality(where all values are same) and Gini index of 1 means maximum inequality among values. The impurity(or purity) measure used in building decision tree in CART is called GINI index.
+\[Gini Index = 1 - \sum_{j}p_j^2 \]
 
-
-Given a sample space $\Omega$, Probability of an advertisement $P_(ad_clicked)$ being clicked, is number of times the advertisement is clicked $N_(ad_clicked = 1)$ by the total number of times the advertisement appears, i.e. $N_(ad_clicked = 0)  N_(ad_clicked = 1)$. 
-
-
-$P_(ad_clicked)  = \frac{N_(ad_clicked = 1)}{N_(ad_clicked = 0) + N_(ad_clicked = 1)}$
-
-
-A clustering algorithm is used to identify and correlate similar data points. The K-Nearest Neighbor algorithm, identifies the $k$ nearest neighbors for a given data point(a single row in a dataset). The $KNN$ algorithm identifies similar data points using a distance metric. 
-TODO - A distance metric is fill in from assignment 1
-
-
+\subsection{Neural Networks}
+Artificial Neural network is a computing system made up of a number of simple, highly interconnected processing elements, which process information by their dynamic state response to external inputs.
 %------------------------------------------------
 
 \section{Data Analysis}
@@ -157,8 +162,11 @@ Richard & Miles & $2$ \\
 \end{table}
 
 \section{Problem}
+TODO
+
 
 \section{Experiments Data}
+TODO
 The model proposed in this paper was trained on a very
 large and diverse dataset. In this section we describe the
 details of the dataset. In addition, we also discuss the details
@@ -166,10 +174,11 @@ of the various standard techniques that have been used for
 the problem, with which the performance of the model was
 compared. The results of the various techniques are given
 in the next section.
-The dataset provided is a sample of user's page views and clicks. The data is from multiple publisher sites from United States between \date 14-June-2016 and 28-June-2016
+
 \section{Results}
 \section{Summary conclusion}
 \section{Future Work}
+In future we are planning to work with random forests. In a random forest, each node is split using the best among a subset of predictors randomly chosen at that node. This somewhat counter intuitive strategy turns out to perform very well compared to many other classifiers.
 \section{Appendix}
 %------------------------------------------------
 \phantomsection
@@ -186,6 +195,7 @@ So long and thanks for all the fish \cite{Figueredo:2009dg}.
 \bibliographystyle{unsrt}
 \bibliography{sample}
 [1] https://www.irbnet.de/daten/iconda/CIB5807.pdf
+[2] https://onlinecourses.science.psu.edu/stat501/node/251
 %----------------------------------------------------------------------------------------
 
 \end{document}
