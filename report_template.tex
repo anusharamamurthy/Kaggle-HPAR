@@ -143,36 +143,70 @@
 	%------------------------------------------------
 	
 	\section{Data Analysis}
+	
+	\subsection{Data Description}
 	The dataset consisted of information about 2919 houses in the City of Ames, Iowa, United States of America. These houses were split into two sets, one  with information about 1460 houses, each has 81 attributes, 79 of them describe various aspects and quality of the house, two others being the ID, identification number for each house and the other is an attribute we wish to predict, the Sale Price of the house. Among the 79, we found 23 attributes to be nominal, 23 to be ordinal, 14 were discrete and 19 continuous set of values \cite{dataset}.\\
 	
-	All the continuous variables are the dimensions measured in square feet, for example the size of the lot, the basement area, the size of the living area and so on. The 14 discrete variables are the count of the various commodities present in the house, for example the count of the bedrooms, bathrooms and so on. The 46 categorical variables describe aspects like the quality of the house, fireplace pool and so on, as well as information about the neighborhood the house belongs to. \\
-	
-	We begin our analysis by checking for duplicates, a check of Id values showed 1460 unique observations. We found that among the 81 attributes, 19 of them had missing values. An initial exploratory analysis of the 62 attributes that had no missing values revealed some interesting insights. \\
-	
-	A thousand four hundred and sixty houses were sold in just four years. The year 2009 appears to have seen the highest number of sales with 338 houses sold. Around 551 of the house's appear to have been built between 1999 and 2010, while 909 of the houses that were sold between 2006 and 2010,  were built between 1870 and 1989. Around 178 of these houses were remodeled in the year 1950, 20 of these were built in the year 1920. Clearly the year a house was built seems to be a factor in the sale of a house, but only further investigations can say if it has an advantage or not. Does the age of house make it more attractive to a buyer? It appears hard to say. Most of the house appear to have been remodeled during 1950-1955 and 2000-2010. \\
-	
-	It also appears that amongst most forms of Sale, Normal conditions of the sale appear to fetch the highest price. But, houses that were not complete when last assessed also seem to fetch a higher price(Partial Condition). In fact looking at the distribution it appears that these fetched a broader range of prices than most other form of Sale Conditions. It also appears that Two story houses fetched the highest price with houses having Two and one-half story and One story fetching the next best prices. In both graphs we see houses that fetched a very high price, possible outliers to these distributions. 
-	
-	\subsection{Subsection}
-	
-	TODO 
-	
 	\begin{table}[hbt]
-		\caption{Table of Grades}
+		\caption{Table of Attribute Types}
 		\centering
 		\begin{tabular}{llr}
-			\toprule
-			\multicolumn{2}{c}{Name} \\
 			\cmidrule(r){1-2}
-			First name & Last Name & Grade \\
+			Attribute Type & Count \\
 			\midrule
-			John & Doe & $7.5$ \\
-			Richard & Miles & $2$ \\
-			\bottomrule
+			Nominal & 23 \\
+			Ordinal & 23 \\
+			Discrete & 14 \\
+			Continous & 19
 		\end{tabular}
 		\label{tab:label}
 	\end{table}
 	
+	All the continuous variables are the dimensions measured in square feet, for example the size of the lot, the basement area, the size of the living area and so on. The 14 discrete variables are the count of the various commodities present in the house, for example the count of the bedrooms, bathrooms and so on. The 46 categorical variables describe aspects like the quality of the house, fireplace pool and so on, as well as information about the neighborhood the house belongs to. Hence we couldn't eliminate missing values as there would be no row available.\\
+	
+	\subsection{Exploratory Analysis}
+	We begin our analysis by checking for duplicates, a check of Id values showed 1460 unique observations. We found that among the 81 attributes, 19 of them had missing values. An initial exploratory analysis of the 62 attributes that had no missing values revealed some interesting insights. \\
+	
+	A thousand four hundred and sixty houses were sold in just four years. The year 2009 appears to have seen the highest number of sales with 338 houses sold. Around 551 of the house's appear to have been built between 1999 and 2010, while 909 of the houses that were sold between 2006 and 2010,  were built between 1870 and 1989. Around 178 of these houses were remodeled in the year 1950, 20 of these were built in the year 1920. Clearly the year a house was built seems to be a factor in the sale of a house, but only further investigations can say if it was an advantage or not. Does the age of house make it more attractive to a buyer? It appears hard to say. From the graphs, most of the houses appear to have been remodeled during 1950-1955 and 2000-2010. \\
+	
+	It also appears that amongst most forms of Sale, Normal conditions of the sale appear to have fetched the highest price. But, houses that were not complete when last assessed also seem to fetch a higher price(Partial Condition). In fact looking at the distribution it appears that these fetched a broader range of prices than most other form of Sale Conditions. It also appears that Two story houses fetched the highest price as well as having Two and one-half story and One story houses fetched the next best prices. In both graphs we see houses that fetched a very high price, these may be possible outliers. 
+	
+	\subsection{Missing Values}
+	A large part of analysis depends on the amount of data we have. A large volume of data allows our  data mining algorithms to train better and eventually reduce the margin of error. With the current data set we found 19 attributes containing missing values. Every row of our observations had at least one attribute with a missing value. 
+	
+	\begin{table}[hbt]
+		\caption{Table of Missing Values}
+		\centering
+		\begin{tabular}{llr}
+			\cmidrule(r){1-2}
+			Attribute Name &  Type & Missing \\
+			\midrule
+			Electrical & Nominal & 1 \\
+			MasVnrType & Nominal & 8 \\
+			MasVnrArea & Continous & 8 \\
+			BsmtQual & Nominal & 37 \\
+			BsmtCond & Nominal & 37 \\
+			BsmtExposure & Nominal & 38 \\
+			BsmtFinType1 & Nominal & 37 \\
+			BsmtFinType2 & Nominal & 38 \\
+			GarageType & Nominal & 81 \\
+			GarageYrBlt & Continuous & 81 \\ 
+			GarageFinish & Nominal & 81 \\
+			GarageQual & Nominal & 81 \\
+			GarageCond & Nominal & 81 \\
+			LotFrontage & Continuous & 259 \\
+			FireplaceQu & Nominal & 690 \\
+			Fence & Nominal & 1179 \\
+			Alley & Nominal & 1369 \\
+			MiscFeature & Nominal & 1406 \\
+			PoolQC & Nominal & 1453 \\	
+		\end{tabular}
+		\label{tab:label}
+	\end{table}
+
+	\subsection{Replacing Missing Values}
+	
+
 	\section{Problem}
 	TODO
 	
