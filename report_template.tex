@@ -68,8 +68,7 @@
 %	ABSTRACT
 %----------------------------------------------------------------------------------------
 
-\Abstract{In this paper, we analyzed the house price based on multiple features using data mining algorithms. In order to select a prediction method different regression methods were explored and compared. The dataset we used describes the sale of individual residential property in Ames, Iowa from 2006 to 2010. We built models using linear regression, decision trees and random forests and compared their performances. The problem
-	is how to reduce multiple features to a minimal number(feature extraction) that can completely predict the target price variable. The results show that data mining algorithms produces high prediction accuracy in house price analysis and prediction. }
+\Abstract{In this paper, we analyzed the house price based on multiple features using data mining algorithms. In order to select a prediction method different regression methods were explored and compared. The dataset we used describes the sale of individual residential property in Ames, Iowa from 2006 to 2010. We built models using linear regression, decision trees and random forests and compared their performances. The problem is how to reduce multiple features to a minimal number(feature extraction) that can completely predict the target price variable. The results show that data mining algorithms produces high prediction accuracy in house price analysis and prediction. }
 
 %----------------------------------------------------------------------------------------
 
@@ -93,19 +92,18 @@
 	
 	\subsection{Problems in House Price Prediction}
 	Real estate properties will always be a safe option of investment for a common person. It is an investment which does not decline in value rapidly. The rapidly growing real estate industry has become an important part of national economy. Problems such as rapid raise of house price, high vacancy ratio require the Government to institute industrial policies to help industry development. With the increase on the data, the analysts need to apply good tools and predict house prices to help consumers. There is a lot of house data available with different features like Lot Area, Street, neighborhood etc. The important thing is to find a efficient data analysis tool to transform the data into knowledge and information\cite{irb}.\\
+	
 	The data comprises of the multiple features of the house which can be considered by potential buyers , but it is impossible to provide an automated comparison on all the features as they are diverse. The diversity of features makes it challenging to predict correct market price. Feature Extraction is one of the biggest challenges faced with data having large feature set. The house predict
 	
 	
 	\subsection{Data Minning on House Price prediction}
-	Data mining is the process of understanding useful and structural patterns in data, thus referring to the overall procedure of information discovery from data. These data specific discoveries became popular in the domain of machine learning and artificial intelligence. Some of the most popular machine learning algorithm include - decision trees, linear regression, logistic regression, neural networks, random forests and so on. Each algorithm suits some problems better than others. Data mining techniques are used to extract knowledge from data using a different of methods that are divided in two groups: classification and regression. Classification learns to map, or classifies, an item in the data into one of several predefined classes while regressions maps the item to a continuous numerical prediction.
+	Data mining is the process of understanding useful and structural patterns in data, thus referring to the overall procedure of information discovery from data. These data specific discoveries became popular in the domain of machine learning and artificial intelligence. Some of the most popular machine learning algorithm include - decision trees, linear regression, logistic regression, neural networks, random forests and so on. Each algorithm suits some problems better than others. Data mining techniques are used to extract knowledge from data using a different of methods that are divided in two groups: classification and regression. Classification learns to map, or classifies, an item in the data into one of several predefined classes while regressions maps the item to a continuous numerical prediction.\\
 	
 	Data mining draws inferences from data to understand the patterns of correlation among data values and to predict the future data values. By calculating the differences between the actual and predicted price as an error, we compare the results and accuracy of the predicated prices by the Decision Trees and Neural Networks algorithms. 
 	
 	\subsection{Interests and Motivation}
-	TODO
 	The consumers of the house price prediction can be - homeowners, investors, tax assessment department, insurers etc. These consumers should get an accurate prediction of the final price of house. It is interesting to learn based diverse features on the existing consumer data and predict accurate house prices for any new data.  
-	
-	\footnote{And some mathematics $\cos\pi=-1$ and $\alpha$ in the text.}.
+
 	
 	%------------------------------------------------
 	
@@ -123,13 +121,18 @@
 	\end{figure*}
 	
 	In this paper we used machine learning algorithms like linear regression, decision trees and neural networks to predict the house prices. Machine learning techniques can be divided into supervised and unsupervised. Our analysis takes into consideration the provided target variables in making predictions, thus it is supervised. In this section we will discuss about these techniques in detail.
+	
 	\subsection{Linear Regression}
+	
 	A Regression Model defines three types of regression models: linear, polynomial, and logistic regression. Linear regression, the most widely used of all statistical techniques, allows to summarize and study relations between two continuous variables\cite{stat}. It attempts to model the relationship between these two variables by fitting a linear equation to observed data. \\
+	
 	Let $Y$ be the target value which we need to predict.\\
-	Let $X$ be the independent variables from which target is predicted, then\\
-	The linear regression line has an equation of the form:
-	\[ $Y = a + bX$\]
-	Mos common method to fit a regression line is the method of least squares which calculates the best fitting line for observed data by minimizing the sum of squares of the vertical deviations from each data point to the line. 
+	
+	Let $X$ be the independent variables from which target is predicted, then the linear regression line has an equation of the form:\\
+	\footnote{where $a$ and $b$ are constants.}\centerline{\[ $Y = a + bX$\]}	
+	
+	
+	Most common method to fit a regression line is the method of least squares which calculates the best fitting line for observed data by minimizing the sum of squares of the vertical deviations from each data point to the line. 
 	
 	\subsection{Decision Trees}
 	A decision tree builds regression or classification models in the form of a tree structure. The tree includes root node, branches and leaf nodes. Each internal node denotes a test on an attribute, each branch denotes the outcome of a test and each leaf node holds a class label. Decision trees can handle both categorical and numerical data. \\
@@ -205,42 +208,82 @@
 	\end{table}
 
 	\subsection{Replacing Missing Values}
+	Looking at each of the missing attributes we had to find a way to fill them without loss of existing relationships and natural distribution of the data. Some of the existing methods to replace missing values is by filling them with the mean , median or the mode. Since 16 of our missing values are Nominal data types, mean and median are meaningless. If we choose to replace them by the mode blindly, we might make our data skewed. Hence we decided to look at each attribute of the house, before we fill the missing values. \\
 	
-
+	For the Electrical Attribute, it could take the four possible values. We found that 'FuseA' appeared to be the most common type of electrical type across homes of in the 'Timber' Neighborhood and replaced our missing value with the same. Attributes Masonry veneer type and Masonry veneer area appeared to be linked. For values of Masonry veneer type as 'None', the Masonry veneer area always had 0.0 square feet as the value. For those observations where Masonry veneer area alone was missing, the Masonry veneer type was also missing. Hence we filled Masonry veneer type as  'None' and Masonry veneer area with values '0.0'.\\ 
+	
+	Attributes 'BsmtQual', 'BsmtCond',    'BsmtExposure',\\
+	'BsmtFinType1', 'BsmtFinType2' also appear to be related as they describe properties of the basement area of the house. We found that these attributes that were missing for the observations appeared to be houses with no basements. On analysis we found that the BsmtFinSF1, BsmtUnfSF, TotalBsmtSF which were values about the dimensions of the basement were all zero. Hence we filled each of the missing values with 'NA', which conveys the information that no basement is present. 
+	
+	Attributes 'GarageType','GarageFinish, 'GarageQual',\\'GarageCond', 'GarageYrBlt' give description about the garage of the house. These values appear to be missing for houses that had no garage. Hence we filled each of these values with NA, except the attribute 'GarageYrBlt' which we felt was not as informative if there is no garage in the first place. For most houses the 'GarageYrBlt' appears to be the year the house was built. Hence we choose to remove this attribute all together. For the attribute 'FireplaceQu' we have no other correlated attribute that could give us an intuition on how to fill its missing values. We decided to assume that the missing values signify a house without a fire place, as most houses in Ames appear to have Central heating and filled it with 'NA'. We did the same for attributes 'PoolQC' and 'MiscFeature' as they appear to be for housings without a pool or any other miscellaneous feature like elevators. For the attribute 'Fence', we assumed that most houses would have the bare minimum fencing and replaced it with 'MnWw' which stands for minimum wood or wire fencing. For the attribute 'Alley' we choose to fill this attribute with 'NA' after a study of the document on Housing Information, on the City of Ames website which stated that attribute 'LotFrontage' and 'Alley' need not have a minimum value\cite{ames}.
+	\begin{figure*}[ht]\centering % Using \begin{figure*} makes the figure take up the entire width of the page
+		\includegraphics[width=\linewidth]{tree_diagram_10samples}
+		\caption{Decision Tree for 10 observations}
+		\label{fig:tree_diagram_10samples}
+	\end{figure*}
+	\begin{figure*}[ht]\centering % Using \begin{figure*} makes the figure take up the entire width of the page
+		\includegraphics[width=\linewidth]{results}
+		\caption{Results}
+		\label{results}
+	\end{figure*}
+	
 	\section{Problem}
-	TODO
+	We now have a complete dataset, with 78 attributes that could help us in determining the price of the house. We choose to first build a linear model to predict the Sale Price. This was motivated by the paper on this dataset described in \cite{dataset}. This problem was and is assumed to be a best solved by regression models. It is intuitive to think that each extra bedroom would cost $x$ amount of cash, so we assume that the independent components of the house linearly influence the price of the house. For example \\
+	$Cost_{(house_{(i)})} \\
+	= (Number_{(bedrooms)} * Area_{(bedroom)}+Number_{(bathrooms)}\\*Area_{(bathroom)}+Number_{(kitchens)}*Area_{(kitchen)})* Cost_{(persqfeet)}$\\
+	
+	However, most of us while looking for a house, either like one aspect of the house more than anything else. So for some person X, the best think is a porch, and the price X would pay for it is not a tangible value. We have no way of quantifying a likable attribute. Hence in our opinion, a linear equation for such a problem has its own caveats. What we needed was an algorithm that will look at all the existing training samples and learn the distribution without making prior opinions about the parametric nature of the problem.\\
+	
+	Hence we choose to next apply a non parametric algorithm. Decision trees are popular algorithms that create branching by asking yes or no questions. CART or Classification and Regression Trees are extensively used in Predictive Modeling. A regression tree partitions each observation such that those with same values are grouped together. Hence it maintains the natural grouping of the data. A tree produced by the algorithm for small set of 10 observations is included. \\
+	
+	A Decision Tree can over fit and not generalize well. Hence it fails to perform well on new observations. One method to over come the bias and variation is by using Boosting \cite{dt}. A set of weak decision trees are combined with adjusted weights\cite{ada}. Adaptive boosting or Adaboost implementation was hence used to generate better results. 
 	
 	
-	\section{Experiments Data}
-	TODO
-	The model proposed in this paper was trained on a very
-	large and diverse dataset. In this section we describe the
-	details of the dataset. In addition, we also discuss the details
-	of the various standard techniques that have been used for
-	the problem, with which the performance of the model was
-	compared. The results of the various techniques are given
-	in the next section. The data set describes the sale of individual residential property in Ames, Iowa from 2006 to 2010. The data set contains a large number of explanatory variables (23 nominal, 23 ordinal, 14 discrete, and 20 continuous) involved in assessing home
-	values.\\
-	Operating System: \\
-	Python Version: \\
-	Any other tools used \\
+	\section{Experiments}
+	 The data was present as a competition in the Kaggle website\cite{kaggle}. A detailed description of the attributes is also present. The data set is split into two files, one with the Sale Price given, the other without. We used the data file with the Sale Price present to implement and test our hypothesis. We began by doing some initials checks on the data set, like the size of the data set, the attributes. We then moved to the cleaning and preprocessing of the dataset. This involved the process of finding and replacing the missing values. \\
+	 
+	 All of our implementation was using Python programming. For most regression algorithms, the data has to be of Real values, namely continuous data types. Hence we had to use a method of changing our nominal data types to real valued numbers\cite{dict}. \\
+	 
+	 We split our Data set into 70-30 ratio. 70\% of our data is split to train the algorithm and 30\% is used in testing. We applied Linear Regression, Decision Tree and AdaBoost for Decision Tree Regressors We also applied K-fold Cross Validation methods for each algorithm\cite{kfold}.
 	
-	
+	\begin{table}[hbt]
+		\caption{Table of Implementation Specifications}
+		\centering
+		\begin{tabular}{llr}
+			\cmidrule(r){1-2}
+			Name &  Type \\
+			\midrule
+			Operating System & MAC Sierra \\
+			RAM Size & 16 GB\\
+			Programming Language & Python \\
+			Version & 2.7\\
+			Editor & Ipython Notebook \\
+			Libraries & pandas, scikit-learn, NumPy\\
+			& matplotlib,pydotplus,graphviz 
+		\end{tabular}
+		\label{tab:label}
+	\end{table}
 	
 	
 	\section{Results}
-	We first trained our system using 80 of train data and then tested on rest of 20 of the train data. 
+	We trained our algorithms with 78 attributes, to predict the House Prices. Linear regression yielded extremely poor results. We then applied Decision Tree Regressor For the 70 training,30 test split it yielded a score 61\%. On K-fold cross validation with $k=10$ Decision trees gave better score of 76\%.\\
+	
+	We then applied AdaBoost for Decision Tree Regressor For the 70 training,30 test split it yielded a score 85\%. On K-fold cross validation with $k=10$ AdaBoost gave an average score of 85\%.\\
+	
+	From the graphs, we do se several outliers that appear to be never accurately predicted by either of the algorithms. It does appear that Decision Tree comes very close to predicted the Sale Prices, but never quite gets there. The predicted and actual prices appear to be more closer in the case of Adaboost. The Pearson Coefficient Ratio for Decision tree for Actual and Predicted values was around 0.86, while for Adaboost it was 0.93. 
+	
+	 
 	\section{Summary conclusion}
+	The results from Linear regression were disappointing, but in a way it makes sense. There are a number of features that contribute towards making the decision to buy a home and they may not all be linearly correlated. While decision trees were able to learn better, we would like to explore other algorithms and approaches to get a much better accuracy of Sale prices.
 	\section{Future Work}
-	In future we are planning to work with random forests. In a random forest, each node is split using the best among a subset of predictors randomly chosen at that node. This somewhat counter intuitive strategy turns out to perform very well compared to many other classifiers.
+	In future we are planning to work with Random forests and Lasso Regression. We would also like to explore PCA and other dimensionality reduction techniques. An idea we would like to explore is combining this dataset with the Boston Housing Prices Dataset to analyze if Housing Sales follow similar or different patterns across cities.
 	\section{Appendix}
 	%------------------------------------------------
 	\phantomsection
 	\section*{Acknowledgments} % The \section*{} command stops section numbering
 	
 	\addcontentsline{toc}{section}{Acknowledgments} % Adds this section to the table of contents
-	
-	So long and thanks for all the fish \cite{Figueredo:2009dg}.
+	We would like to thank Prof. Mehmet Dalkilic for giving us the opportunity and resources to work on this project. We would also like to thank Hasan Kurban and Kurt Zimmer for all their help.
 	
 	%----------------------------------------------------------------------------------------
 	%	REFERENCE LIST
