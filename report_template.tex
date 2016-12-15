@@ -52,14 +52,15 @@
 %----------------------------------------------------------------------------------------
 
 \JournalInfo{Data Mining B565 Fall 2016} % Journal information
-\Archive{} % Additional notes (e.g. copyright, DOI, review/research article)
+\Archive{All work here is solely ours.} % Additional notes (e.g. copyright, DOI, review/research article)
 
 \PaperTitle{Analysis and Prediction of House Prices for the City of Ames} % Article title
 
 \Authors{Anusha Ramamurthy\textsuperscript{1}, Vandana Kolli\textsuperscript{2}} % Authors
+
 \affiliation{\textsuperscript{1}\textit{ Data Science, School of Informatics and Computing, Indiana University, Bloomington, IN, USA}} % Author affiliation
 \affiliation{\textsuperscript{2}\textit{ Computer Science, School of Informatics and Computing, Indiana University, Bloomington, IN, USA}} % Author affiliation
-\affiliation{*\textbf{Corresponding author}: todo} % Corresponding author
+\affiliation{\textbf{}} % Corresponding author
 
 \Keywords{house --- price --- prediction --- Ames --- Iowa} % Keywords - if you don't want any simply remove all the text between the curly brackets
 \newcommand{\keywordname}{Keywords} % Defines the keywords heading name
@@ -74,6 +75,7 @@
 
 \begin{document}
 	
+	
 	\flushbottom % Makes all text pages the same height
 	
 	\maketitle % Print the title and abstract box
@@ -85,7 +87,6 @@
 	%----------------------------------------------------------------------------------------
 	%	ARTICLE CONTENTS
 	%----------------------------------------------------------------------------------------
-	
 	\section{Introduction} % The \section*{} command stops section numbering
 	
 	\addcontentsline{toc}{section}{Introduction} % Adds this section to the table of contents
@@ -145,11 +146,12 @@
 	It measures the inequality among values of a frequency distribution. Gini index of 0 means perfect equality(where all values are same) and Gini index of 1 means maximum inequality among values. The impurity(or purity) measure used in building decision tree in CART is called GINI index.
 	\[Gini Index = 1 - \sum_{j}p_j^2 \]
 	
-	\subsection{Ada Boost}
+	\subsection{AdaBoost Algorithm}
+	AdaBoost algorithm was the first practical demonstration of boosting by Freund and Schapire\cite{adaboost}. Boosting in general is a machine learning approach that demonstrates the idea that a collection of week predictors can be combined to come up with a strong predictor. 
 	
 	%------------------------------------------------
 	
-	\section{Data Analysis}
+	\section{Methods and Data Analysis}
 	
 	\subsection{Data Description}
 	The dataset consisted of information about 2919 houses in the City of Ames, Iowa, United States of America. These houses were split into two sets, one  with information about 1460 houses, each has 81 attributes, 79 of them describe various aspects and quality of the house, two others being the ID, identification number for each house and the other is an attribute we wish to predict, the Sale Price of the house. Among the 79, we found 23 attributes to be nominal, 23 to be ordinal, 14 were discrete and 19 continuous set of values \cite{dataset}.\\
@@ -240,39 +242,52 @@
 	
 	Hence we choose to next apply a non parametric algorithm. Decision trees are popular algorithms that create branching by asking yes or no questions. CART or Classification and Regression Trees are extensively used in Predictive Modeling. A regression tree partitions each observation such that those with same values are grouped together. Hence it maintains the natural grouping of the data. A tree produced by the algorithm for small set of 10 observations is included. \\
 	
-	A Decision Tree can over fit and not generalize well. Hence it fails to perform well on new observations. One method to over come the bias and variation is by using Boosting \cite{dt}. A set of weak decision trees are combined with adjusted weights\cite{ada}. Adaptive boosting or Adaboost implementation was hence used to generate better results. 
+	A Decision Tree can over fit and not generalize well. Hence it fails to perform well on new observations. One method to over come the bias and variation is by using Boosting \cite{dt}. A set of weak decision trees are combined with adjusted weights\cite{ada}. Adaptive boosting or AdaBoost implementation was hence used to generate better results. 
 	
 	
 	\section{Experiments}
+	 \begin{table}[hbt]
+	 	\caption{Table of Implementation Specifications}
+	 	\centering
+	 	\begin{tabular}{llr}
+	 		\cmidrule(r){1-2}
+	 		Name &  Type \\
+	 		\midrule
+	 		Operating System & MAC Sierra \\
+	 		RAM Size & 16 GB\\
+	 		Programming Language & Python \\
+	 		Version & 2.7\\
+	 		Editor & Ipython Notebook \\
+	 		Libraries & pandas, scikit-learn, NumPy\\
+	 		& matplotlib,pydotplus,graphviz 
+	 	\end{tabular}
+	 	\label{tab:label}
+	 \end{table}
 	 The data was present as a competition in the Kaggle website\cite{kaggle}. A detailed description of the attributes is also present. The data set is split into two files, one with the Sale Price given, the other without. We used the data file with the Sale Price present to implement and test our hypothesis. We began by doing some initials checks on the data set, like the size of the data set, the attributes. We then moved to the cleaning and preprocessing of the dataset. This involved the process of finding and replacing the missing values. \\
 	 
 	 All of our implementation was using Python programming. For most regression algorithms, the data has to be of Real values, namely continuous data types. Hence we had to use a method of changing our nominal data types to real valued numbers\cite{dict}. \\
 	 
 	 We split our Data set into 70-30 ratio. 70\% of our data is split to train the algorithm and 30\% is used in testing. We applied Linear Regression, Decision Tree and AdaBoost for Decision Tree Regressors We also applied K-fold Cross Validation methods for each algorithm\cite{kfold}.
 	
-	\begin{table}[hbt]
-		\caption{Table of Implementation Specifications}
-		\centering
-		\begin{tabular}{llr}
-			\cmidrule(r){1-2}
-			Name &  Type \\
-			\midrule
-			Operating System & MAC Sierra \\
-			RAM Size & 16 GB\\
-			Programming Language & Python \\
-			Version & 2.7\\
-			Editor & Ipython Notebook \\
-			Libraries & pandas, scikit-learn, NumPy\\
-			& matplotlib,pydotplus,graphviz 
-		\end{tabular}
-		\label{tab:label}
-	\end{table}
-	
 	
 	\section{Results}
 	We trained our algorithms with 78 attributes, to predict the House Prices. Linear regression yielded extremely poor results. We then applied Decision Tree Regressor For the 70 training,30 test split it yielded a score 61\%. On K-fold cross validation with $k=10$ Decision trees gave better score of 76\%.\\
 	
+	\section{Experiments}
+
 	We then applied AdaBoost for Decision Tree Regressor For the 70 training,30 test split it yielded a score 85\%. On K-fold cross validation with $k=10$ AdaBoost gave an average score of 85\%.\\
+	
+	\begin{table}[hbt]
+		\caption{Table of Results} \centering \begin{tabular}{llr} \toprule \multicolumn{2}{c}{70\%-30\% Train Test Split} \\ \cmidrule(r){1-2} Approach & Accuracy\\ \midrule Decision Tree & 61\% \\ 
+			AdaBoost Algorithm & 85\% \\ \bottomrule \end{tabular} 
+		\label{tab:label} 
+	\end{table}
+	
+	\begin{table}[hbt]
+		\caption{Table of Results} \centering \begin{tabular}{llr} \toprule \multicolumn{2}{c}{K-fold Cross Validation} \\ \cmidrule(r){1-2} Approach & Accuracy\\ \midrule Decision Tree & 75\% \\ 
+				AdaBoost Algorithm & 85\% \\ \bottomrule \end{tabular} 
+		\label{tab:label} 
+	\end{table}
 	
 	From the graphs, we do se several outliers that appear to be never accurately predicted by either of the algorithms. It does appear that Decision Tree comes very close to predicted the Sale Prices, but never quite gets there. The predicted and actual prices appear to be more closer in the case of Adaboost. The Pearson Coefficient Ratio for Decision tree for Actual and Predicted values was around 0.86, while for Adaboost it was 0.93. 
 	
