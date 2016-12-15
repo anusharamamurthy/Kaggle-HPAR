@@ -61,14 +61,14 @@
 \affiliation{\textsuperscript{2}\textit{ Computer Science, School of Informatics and Computing, Indiana University, Bloomington, IN, USA}} % Author affiliation
 \affiliation{*\textbf{Corresponding author}: todo} % Corresponding author
 
-\Keywords{house --- price --- prediction} % Keywords - if you don't want any simply remove all the text between the curly brackets
+\Keywords{house --- price --- prediction --- Ames --- Iowa} % Keywords - if you don't want any simply remove all the text between the curly brackets
 \newcommand{\keywordname}{Keywords} % Defines the keywords heading name
 
 %----------------------------------------------------------------------------------------
 %	ABSTRACT
 %----------------------------------------------------------------------------------------
 
-\Abstract{In this paper, we analyzed the house price based on multiple features using data mining algorithms. In order to select a prediction method different regression methods were explored and compared. The dataset we used describes the sale of individual residential property in Ames, Iowa from 2006 to 2010. We built models using linear regression, decision trees and random forests and compared their performances. The problem is how to reduce multiple features to a minimal number(feature extraction) that can completely predict the target price variable. The results show that data mining algorithms produces high prediction accuracy in house price analysis and prediction. }
+\Abstract{For decades, real estate has always been an asset most of us would like to invest on.Buying a house is never an easy decision. A number of factors influence the choice. The neighborhood, the type of architecture, the number of bedrooms so on. In this paper, we analyze 80 attributes about 1460 houses to predict the final price of a house by applying data mining algorithms. The dataset describes the sale of individual residential properties in the City of Ames, Iowa between 2006 to 2010. We built models using linear regression, decision trees and Ada boost. The results show that data mining algorithms produces high prediction accuracy in house price analysis and prediction. }
 
 %----------------------------------------------------------------------------------------
 
@@ -91,18 +91,17 @@
 	\addcontentsline{toc}{section}{Introduction} % Adds this section to the table of contents
 	
 	\subsection{Problems in House Price Prediction}
-	Real estate properties will always be a safe option of investment for a common person. It is an investment which does not decline in value rapidly. The rapidly growing real estate industry has become an important part of national economy. Problems such as rapid raise of house price, high vacancy ratio require the Government to institute industrial policies to help industry development. With the increase on the data, the analysts need to apply good tools and predict house prices to help consumers. There is a lot of house data available with different features like Lot Area, Street, neighborhood etc. The important thing is to find a efficient data analysis tool to transform the data into knowledge and information\cite{irb}.\\
+	Real estate properties have always be a safe option of investment. It is an investment that does not decline in value rapidly. The  growing real estate industry has become an important part of national economy. Problems such as rapid increase in house prices, high vacancy ratio require the Government to institute industrial policies to help bridge the gap. With the increase in data, analysts can apply tools to predict house prices to help consumers. A lot of housing data is available today, with different features like Lot Area, Street, neighborhood etc. The idea is to find an efficient data analysis methodology to transform these datasets into significant sources of knowledge and information\cite{irb}.\\
 	
-	The data comprises of the multiple features of the house which can be considered by potential buyers , but it is impossible to provide an automated comparison on all the features as they are diverse. The diversity of features makes it challenging to predict correct market price. Feature Extraction is one of the biggest challenges faced with data having large feature set. The house predict
-	
+	The data comprises of the multiple features of the house which can be considered by potential buyers. However it is impossible to provide an automated comparison on all the features as they are diverse. This diversity makes it challenging to predict the correct market price. Feature Extraction is one of the biggest challenges faced with data having a large feature set.
 	
 	\subsection{Data Minning on House Price prediction}
-	Data mining is the process of understanding useful and structural patterns in data, thus referring to the overall procedure of information discovery from data. These data specific discoveries became popular in the domain of machine learning and artificial intelligence. Some of the most popular machine learning algorithm include - decision trees, linear regression, logistic regression, neural networks, random forests and so on. Each algorithm suits some problems better than others. Data mining techniques are used to extract knowledge from data using a different of methods that are divided in two groups: classification and regression. Classification learns to map, or classifies, an item in the data into one of several predefined classes while regressions maps the item to a continuous numerical prediction.\\
+	Data mining is the process of understanding useful and structural patterns in data, thus referring to the overall procedure of information discovery from data. These data specific discoveries became popular in the domain of machine learning and artificial intelligence. Some of the most popular machine learning algorithms include - decision trees, linear regression, logistic regression, neural networks, random forests and so on. Each algorithm suits some problems better than others. Data mining techniques are used to extract knowledge from data using a different of methods that are broadly divided in two groups: classification and regression. Classification learns to map, or classify, an item into one of the several predefined classes while regressions maps the item to a continuous numerical prediction.\\
 	
-	Data mining draws inferences from data to understand the patterns of correlation among data values and to predict the future data values. By calculating the differences between the actual and predicted price as an error, we compare the results and accuracy of the predicated prices by the Decision Trees and Neural Networks algorithms. 
+	Data mining draws inferences from data to understand the patterns of correlation among data values and to predict the future data values. By calculating the differences between the actual and predicted price as an error, we compare the results and accuracy of the predicated prices by the use of Decision Trees and Ada Boost algorithms. 
 	
 	\subsection{Interests and Motivation}
-	The consumers of the house price prediction can be - homeowners, investors, tax assessment department, insurers etc. These consumers should get an accurate prediction of the final price of house. It is interesting to learn based diverse features on the existing consumer data and predict accurate house prices for any new data.  
+	The world today is rapidly changing. People travel miles without a kin or friend, to newer unseen places. It is hard to find some one to consult with before buying a house at a new town. These changing times demand an undisputed, unparalleled authority to help the general public, get an unbiased prediction on the price of a house. Tax payers need help to evaluate their yearly tax projections. It is also an interesting challenge for data miners and computer scientists. Identifying the features based on demographics, current market trends, patterns in personal and housing loans, every little factor influences the real estate market. Data mining algorithms and analysis feed on such factors to help make informed data driven decisions. 
 
 	
 	%------------------------------------------------
@@ -119,8 +118,12 @@
 		\caption{Distribution of Sale Price}
 		\label{fig:SalePrice}
 	\end{figure*}
+
+	Data is of various types. Some describe a value that is individual and distinct. These are termed as Discrete Data .Some can take on an infinite number of values and are termed Continuous Data types.  Some Data values fall under different categories and are discrete, like the Color one likes. These types are termed as Nominal Data. Then there are data types that preserve the ordering where the actual value doesn't matter except to signify the rank. These are called Ordinal data types. \\
 	
-	In this paper we used machine learning algorithms like linear regression, decision trees and neural networks to predict the house prices. Machine learning techniques can be divided into supervised and unsupervised. Our analysis takes into consideration the provided target variables in making predictions, thus it is supervised. In this section we will discuss about these techniques in detail.
+	Attributes are properties that provide information about an item. Observations are a set of attributes that talk about a single item under discussion. Null values are attributes with no value specified.\\
+	
+	In this paper we used machine learning algorithms like linear regression, decision trees and Ada Boost to predict the house prices. Machine learning techniques can be divided into supervised and unsupervised. Our analysis takes into consideration the provided target variables in making predictions, thus it is supervised.In this section we will discuss about these techniques in detail.
 	
 	\subsection{Linear Regression}
 	
@@ -137,12 +140,13 @@
 	\subsection{Decision Trees}
 	A decision tree builds regression or classification models in the form of a tree structure. The tree includes root node, branches and leaf nodes. Each internal node denotes a test on an attribute, each branch denotes the outcome of a test and each leaf node holds a class label. Decision trees can handle both categorical and numerical data. \\
 	Different algorithms and impurity measures are used for building a Decision Tree. In our analysis we have used CART (Classification and Regression Tree) algorithm. In our paper since we are dealing with prediction of a continuous  variable(price), the decision tree is called regression tree.\\
+	
 	\textbf{Gini Index}\\
 	It measures the inequality among values of a frequency distribution. Gini index of 0 means perfect equality(where all values are same) and Gini index of 1 means maximum inequality among values. The impurity(or purity) measure used in building decision tree in CART is called GINI index.
 	\[Gini Index = 1 - \sum_{j}p_j^2 \]
 	
-	\subsection{Neural Networks}
-	Artificial Neural network is a computing system made up of a number of simple, highly interconnected processing elements, which process information by their dynamic state response to external inputs.
+	\subsection{Ada Boost}
+	
 	%------------------------------------------------
 	
 	\section{Data Analysis}
@@ -276,8 +280,8 @@
 	\section{Summary conclusion}
 	The results from Linear regression were disappointing, but in a way it makes sense. There are a number of features that contribute towards making the decision to buy a home and they may not all be linearly correlated. While decision trees were able to learn better, we would like to explore other algorithms and approaches to get a much better accuracy of Sale prices.
 	\section{Future Work}
-	In future we are planning to work with Random forests and Lasso Regression. We would also like to explore PCA and other dimensionality reduction techniques. An idea we would like to explore is combining this dataset with the Boston Housing Prices Dataset to analyze if Housing Sales follow similar or different patterns across cities.
-	\section{Appendix}
+	In future, we would like to explore a different approach to filling the missing values to examine if the overall accuracy of predictions increase. We  would also like to work with Random forests and Lasso Regression. We would like to explore PCA and other dimensionality reduction techniques. Another idea is combining this dataset with the Boston Housing Prices Dataset to analyze if Housing Sales follow similar or different patterns across cities.
+	
 	%------------------------------------------------
 	\phantomsection
 	\section*{Acknowledgments} % The \section*{} command stops section numbering
